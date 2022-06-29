@@ -1,0 +1,58 @@
+  <div>
+    
+     <button (click)="addBirthday()" type="button" class="btn btn-info">Adauga</button>
+  
+    <div class="birthday" *ngFor="let birthday of BirthdayList; let i = index;" >
+  
+      
+      <div>
+        <span class="title">Nr</span> {{i +1}}
+    
+        <span class="remove">
+          <button (click)="removeBirthday(i)" type="button" class="btn btn-danger">X</button>
+        </span>
+      </div>
+      
+      
+      <div>
+        <span class="title"> Nume:</span>
+        <input required [(ngModel)]="birthday.nume" pattern="^[a-zA-Z]+$" required minlength="3" #nume="ngModel" type="text" >
+        <div *ngIf="!nume?.valid && (nume?.dirty || nume?.touched)">
+          Camp invalid
+       </div>
+      </div>
+      
+      <div> 
+        <span class="title"> Prenume:</span>
+        <input required [(ngModel)]="birthday.prenume" pattern="^[a-zA-Z]+$" required minlength="3" #prenume="ngModel" type="text">
+        <div *ngIf="!prenume?.valid && (prenume?.dirty || prenume?.touched)">
+          Camp invalid
+       </div>
+      </div>
+  
+      <div> 
+        <span class="title"> Telefon:</span>
+        <input required [(ngModel)]="birthday.telefon" type="number">
+      </div>
+  
+      <div> 
+        <span class="title"> Email:</span>
+        <input required [(ngModel)]="birthday.email" type="text">
+      </div>
+
+      <div> 
+        <span class="title"> Oras:</span>
+        <input required [(ngModel)]="birthday.oras" pattern="^[a-zA-Z]+$" required minlength="3" #oras="ngModel" type="text">
+        <div *ngIf="!oras?.valid && (oras?.dirty || oras?.touched)">
+          Camp invalid
+       </div>
+      </div>
+  
+      <div>
+        <span class="title">Data nasterii:</span>
+        <input required [(ngModel)]="birthday.data" type="date">
+      </div>
+    
+      
+  
+    </div>  
